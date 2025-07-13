@@ -311,13 +311,15 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .about-img img {
+        .about-img img,
+        .about-img video {
             width: 100%;
             height: auto;
             transition: var(--transition);
         }
 
-        .about-img:hover img {
+        .about-img:hover img,
+        .about-img:hover video {
             transform: scale(1.05);
         }
 
@@ -364,6 +366,23 @@
             flex-shrink: 0;
             color: var(--dark);
             font-size: 1.2rem;
+        }
+
+        /* Video Wrapper */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Classes */
@@ -797,46 +816,28 @@
             transform: translateX(5px);
         }
 
-        .footer-newsletter p {
-            color: rgba(var(--white), 0.7);
-            margin-bottom: 1rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 0.8rem;
-            border: none;
-            border-radius: var(--radius-md) 0 0 var(--radius-md);
-            background-color: rgba(var(--white), 0.1);
-            color: var(--white);
-        }
-
-        .newsletter-form button {
-            padding: 0 1.5rem;
-            background-color: var(--secondary);
-            color: var(--dark);
-            border: none;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .newsletter-form button:hover {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-
         .footer-bottom {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(var(--white), 0.1);
             color: rgba(var(--white), 0.7);
             font-size: 0.9rem;
+        }
+
+        .association-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .association-logo img {
+            height: 45px;
+            width: auto;
         }
 
         .theme-switcher {
@@ -969,6 +970,10 @@
                 width: 100%;
                 max-width: 250px;
             }
+
+            .footer-bottom {
+                justify-content: center;
+            }
         }
 
         @media screen and (max-width: 576px) {
@@ -1045,7 +1050,7 @@
                 
                 <div class="about-text">
                     <h2>Mais de 30 anos de história</h2>
-                    <p>  Capoeira Regional, estilo criado por Mestre Bimba. Nosso trabalho vai além da prática esportiva, promovendo a cultura brasileira e transformando vidas através da capoeira.</p>
+                    <p>  Capoeira Regional Brasil, Nosso trabalho vai além da prática esportiva, promovendo a cultura brasileira e transformando vidas através da capoeira.</p>
                     <p>Com unidades em várias cidades do Brasil, já formamos centenas de capoeiristas que hoje disseminam nossa arte pelo mundo.</p>
                     
                     <div class="about-features">
@@ -1102,7 +1107,7 @@
                             <i class="far fa-clock"></i>
                             <span>Segunda , Quarta e sexta 17:30h-18:30h | sexta, 18:00h (MS)</span>
                         </div>
-                        <p>Aulas lúdicas para crianças, desenvolvendo coordenação, ritmo e socialização.</p>
+                        <p>Aulas lúdicas para crianças, desenvolvendo coordenação, ritmo, socialização, respeito e disciplina perante a sociedade.</p>
                         <p class="class-price">R$ /mês</p>
                         <a href="#contact" class="btn btn-primary">Matricule-se</a>
                     </div>
@@ -1119,7 +1124,7 @@
                             <i class="far fa-clock"></i>
                         <span>Segunda, Quarta e sexta 18:30h-19h30 | Sexta, 18:00h (MS)</span>
                         </div>
-                        <p>Treinos intensivos, com técnicas avançadas e preparação para batizados.</p>
+                        <p>Treinos intensivos, com técnicas avançadas e preparação para campeonatos.</p>
                         <p class="class-price">R$ /mês</p>
                         <a href="#contact" class="btn btn-primary">Matricule-se</a>
                     </div>
@@ -1173,6 +1178,11 @@
                 <a href="img/gallery/viagem2.jpg" class="gallery-item" data-lightbox="gallery" data-category="viagens" data-title="Workshop com Mestre Convidado">
                     <img src="mestre.jpg" alt="Workshop com Mestre Convidado">
                 </a>
+            </div>
+            
+            <!-- Botão para página de vídeos -->
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="https://thyeskomkenaodev.github.io/video_regional_brasil/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Confira todos os vídeos</a>
             </div>
         </div>
     </section>
@@ -1410,19 +1420,16 @@
                         <li><a href="#">Musicalidade</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-col footer-newsletter">
-                    <h3>Newsletter</h3>
-                    <p>Assine nossa newsletter e receba novidades sobre eventos e workshops.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Seu Email" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Regional Brasil Brasilândia - Grupo de Capoeira. Todos os direitos reservados.</p>
+                <p>&copy; 2025 - thyesko menão. Todos os direitos reservados.</p>
+                <div class="association-logo">
+                    <span>Apoio:</span>
+                    <a href="#" title="Link para a Associação">
+                        <img src="logoasociaçao.jpg" alt="Logo da Associação">
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
