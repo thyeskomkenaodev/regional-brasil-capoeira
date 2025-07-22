@@ -1,878 +1,639 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-theme="light">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regional Brasil Brasilândia | Grupo de Capoeira Moderno</title>
-    <meta name="description" content="Grupo de Capoeira Regional Brasil Brasilândia - Preservando a tradição com modernidade. Aulas, eventos e cultura brasileira.">
-    
-    <!-- Pré-conexão para melhor performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Fontes do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Lightbox para galeria -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-    
-    <!-- CSS Principal -->
+    <title>Point do Açaí - O melhor açaí da região!</title>
+    <link rel="stylesheet" href="banner.jpeg">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
-            --primary: #4CAF50;
-            --secondary: #F9C80E;
-            --accent: #E15554;
-            --dark: #1A1A2E;
-            --light: #F8F9FA;
-            --text: #333333;
-            --text-light: #6C757D;
-            --success: #28A745;
-            --white: #FFFFFF;
-            --transition: all 0.3s ease;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
-            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 16px;
+            --roxo-primario: #6a0dad;
+            --roxo-secundario: #8a2be2;
+            --roxo-claro: #e6e6fa;
+            --amarelo-primario: #FFD700;
+            --amarelo-secundario: #FFDF00;
+            --amarelo-claro: #FFFACD;
+            --branco: #ffffff;
         }
-
-        [data-theme="dark"] {
-            --primary: #3A86FF;
-            --secondary: #FFBE0B;
-            --accent: #FF006E;
-            --dark: #121212;
-            --light: #1E1E1E;
-            --text: #E1E1E1;
-            --text-light: #A0A0A0;
-            --white: #121212;
-        }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--light);
-            transition: var(--transition);
+            background-color: var(--branco);
+            color: #333;
         }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Roboto Condensed', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 2rem; }
-        h4 { font-size: 1.5rem; }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .container {
+        
+        header {
+            background: linear-gradient(135deg, var(--roxo-primario), var(--roxo-secundario));
+            color: var(--branco);
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: fixed;
             width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
         }
-
-        .section {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            color: var(--primary);
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 1rem auto;
-            border-radius: var(--radius-md);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: var(--dark);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--primary);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-accent {
-            color: var(--accent);
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(var(--white), 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .header.scrolled {
-            background-color: rgba(var(--white), 0.98);
-            box-shadow: var(--shadow-md);
-        }
-
-        .navbar {
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 10px;
         }
-
+        
         .logo img {
             height: 50px;
+            animation: pulse 2s infinite;
         }
-
-        .logo-text h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0;
-            color: var(--primary);
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
         }
-
-        .logo-text span {
-            color: var(--accent);
-            font-size: 0.9rem;
-            display: block;
-        }
-
-        .nav-menu {
+        
+        nav ul {
             display: flex;
+            list-style: none;
             gap: 2rem;
         }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
+        
+        nav a {
+            color: var(--branco);
+            text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 0;
+            transition: all 0.3s ease;
             position: relative;
         }
-
-        .nav-link::after {
+        
+        nav a:hover {
+            color: var(--amarelo-claro);
+        }
+        
+        nav a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--secondary);
-            transition: var(--transition);
+            background: var(--amarelo-primario);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
         }
-
-        .nav-link:hover::after {
+        
+        nav a:hover::after {
             width: 100%;
         }
-
-        .nav-cta {
-            margin-left: 2rem;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-
-        /* Hero */
+        
         .hero {
-            height: 100vh;
-            min-height: 700px;
+            background: url('banner.jpeg');
+            height: 80vh;
             display: flex;
             align-items: center;
-            /* Novo fundo: gradiente escuro + verde cana */
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), linear-gradient(120deg, #4CAF50 0%, #388E3C 100%);
-            color: var(--white);
-            text-align: center;
+            margin-top: 70px;
             position: relative;
         }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            animation: fadeInDown 1s ease;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        /* About */
-        .about {
-            background-color: var(--white);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-img img,
-        .about-img video {
-            width: 100%;
-            height: auto;
-            transition: var(--transition);
-        }
-
-        .about-img:hover img,
-        .about-img:hover video {
-            transform: scale(1.05);
-        }
-
-        .about-img::before {
+        
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(var(--primary), 0.3), rgba(var(--secondary), 0.3));
-            z-index: 1;
-            opacity: 0;
-            transition: var(--transition);
+            background: rgba(106, 13, 173, 0.6);
         }
-
-        .about-img:hover::before {
-            opacity: 1;
-        }
-
-        .about-text h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-features {
-            margin-top: 2rem;
-        }
-
-        .feature-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: var(--dark);
-            font-size: 1.2rem;
-        }
-
-        /* Video Wrapper */
-        .video-wrapper {
+        
+        .hero-content {
             position: relative;
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
+            z-index: 1;
+            color: var(--branco);
+            max-width: 600px;
+            animation: fadeInUp 1s ease;
         }
-
-        .video-wrapper video {
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--amarelo-primario);
+            color: var(--roxo-primario);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--amarelo-primario);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--amarelo-primario);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-roxo {
+            background-color: var(--roxo-primario);
+            color: var(--branco);
+        }
+        
+        .btn-roxo:hover {
+            background-color: var(--roxo-secundario);
+            color: var(--branco);
+        }
+        
+        .btn-pequeno {
+            padding: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--roxo-primario);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--roxo-secundario), var(--amarelo-primario));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .produto {
+            background-color: var(--branco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease;
+            border: 1px solid var(--roxo-claro);
+        }
+        
+        .produto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .produto-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .produto-img .destaque {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--amarelo-primario);
+            color: var(--roxo-primario);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        
+        .produto-img img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .produto:hover .produto-img img {
+            transform: scale(1.1);
+        }
+        
+        .produto-info {
+            padding: 1.5rem;
+        }
+        
+        .produto-info h3 {
+            color: var(--roxo-primario);
+            margin-bottom: 0.5rem;
+        }
+        
+        .produto-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .preco {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--roxo-secundario);
+            margin-bottom: 1rem;
             display: block;
         }
-
-        /* Classes */
-        .classes {
-            background-color: var(--light);
+        
+        .preco .promocao {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 1rem;
+            margin-right: 0.5rem;
         }
-
-        .classes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .class-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .class-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .class-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .class-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .class-card:hover .class-img img {
-            transform: scale(1.1);
-        }
-
-        .class-content {
-            padding: 1.5rem;
-        }
-
-        .class-title {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .class-schedule {
+        
+        .quantidade-container {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--accent);
             margin-bottom: 1rem;
         }
-
-        .class-price {
-            font-weight: 700;
-            color: var(--success);
-            font-size: 1.2rem;
-            margin: 1rem 0;
+        
+        .quantidade-btn {
+            background-color: var(--roxo-claro);
+            color: var(--roxo-primario);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-
-        /* Gallery */
-        .gallery {
-            background-color: var(--white);
+        
+        .quantidade-btn:hover {
+            background-color: var(--roxo-primario);
+            color: var(--branco);
         }
-
-        .gallery-filter {
+        
+        .quantidade-input {
+            width: 50px;
+            text-align: center;
+            margin: 0 0.5rem;
+            padding: 0.3rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .ingredientes-adicionais {
+            margin-bottom: 1rem;
+        }
+        
+        .ingredientes-title {
+            font-weight: 600;
+            color: var(--roxo-primario);
+            margin-bottom: 0.5rem;
+        }
+        
+        .ingredientes-opcoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ingrediente-option {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .ingrediente-option input {
+            margin-right: 0.5rem;
+        }
+        
+        .ingrediente-preco {
+            font-size: 0.8rem;
+            color: var(--roxo-secundario);
+            margin-left: 0.3rem;
+        }
+        
+        .categorias {
             display: flex;
             justify-content: center;
-            gap: 1rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
+            gap: 1rem;
         }
-
-        .filter-btn {
+        
+        .categoria-btn {
             padding: 0.5rem 1.5rem;
-            border-radius: var(--radius-md);
-            background-color: var(--light);
-            color: var(--text);
+            background-color: var(--roxo-claro);
+            color: var(--roxo-primario);
             border: none;
+            border-radius: 50px;
             cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            aspect-ratio: 1;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: var(--shadow-md);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Events */
-        .events {
-            background-color: var(--light);
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .event-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .event-date {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 0.8rem 1.5rem;
-            display: inline-block;
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
             font-weight: 600;
         }
-
-        .event-img {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
+        
+        .categoria-btn:hover, .categoria-btn.ativo {
+            background-color: var(--roxo-primario);
+            color: var(--branco);
         }
-
-        .event-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
+        
+        .formulario {
+            background-color: var(--roxo-claro);
+            padding: 3rem;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+            border: 1px solid var(--amarelo-claro);
         }
-
-        .event-card:hover .event-img img {
-            transform: scale(1.1);
+        
+        .form-group {
+            margin-bottom: 1.5rem;
         }
-
-        .event-content {
-            padding: 1.5rem;
-        }
-
-        .event-title {
-            color: var(--primary);
+        
+        .form-group label {
+            display: block;
             margin-bottom: 0.5rem;
+            color: var(--roxo-primario);
+            font-weight: 600;
         }
-
-        .event-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .event-meta i {
-            margin-right: 0.3rem;
-            color: var(--accent);
-        }
-
-        /* Team */
-        .team {
-            background-color: var(--white);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .team-member {
-            text-align: center;
-            background-color: var(--light);
-            border-radius: var(--radius-lg);
-            padding: 2rem 1.5rem;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .member-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 1.5rem;
-            border: 5px solid var(--secondary);
-        }
-
-        .member-img img {
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
-
-        .team-member:hover .member-img img {
-            transform: scale(1.1);
-        }
-
-        .member-name {
-            color: var(--primary);
-            margin-bottom: 0.3rem;
-        }
-
-        .member-role {
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .member-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .member-social a {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .member-social a:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        /* Contact */
-        .contact {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/contact-bg.jpg') center/cover no-repeat fixed;
-            color: var(--white);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .contact-info h3 {
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            align-items: flex-start;
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            flex-shrink: 0;
-        }
-
-        .contact-text h4 {
-            color: var(--white);
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-text p, .contact-text a {
-            color: rgba(var(--white), 0.8);
-        }
-
-        .contact-text a:hover {
-            color: var(--secondary);
-        }
-
-        .contact-social {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .contact-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(var(--white), 0.1);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .contact-social a:hover {
-            background-color: var(--secondary);
-            color: var(--dark);
-            transform: translateY(-3px);
-        }
-
-        .contact-form .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: none;
-            border-radius: var(--radius-md);
-            background-color: rgba(var(--white), 0.1);
-            color: var(--white);
-            transition: var(--transition);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--roxo-primario);
             outline: none;
-            background-color: rgba(var(--white), 0.2);
-            box-shadow: 0 0 0 2px var(--secondary);
+            box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.2);
         }
-
-        .contact-form textarea {
-            min-height: 150px;
+        
+        .form-group textarea {
+            min-height: 120px;
             resize: vertical;
         }
-
-        .contact-form button {
-            width: 100%;
-            background-color: var(--secondary);
-            color: var(--dark);
-            font-weight: 600;
-            border: none;
-            padding: 1rem;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .contact-form button:hover {
-            background-color: var(--primary);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-col h3 {
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(var(--white), 0.7);
-            transition: var(--transition);
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            transform: translateX(5px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(var(--white), 0.1);
-            color: rgba(var(--white), 0.7);
-            font-size: 0.9rem;
-        }
-
-        /* Support Section */
-        .support {
-            background-color: var(--light);
-        }
-
-        .support-logo-wrapper {
+        
+        .form-row {
             display: flex;
-            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--roxo-primario), var(--roxo-secundario));
+            color: var(--branco);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            gap: 2rem;
         }
-
-        .support-logo-wrapper img {
-            max-height: 80px;
-            width: auto;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: var(--transition);
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
         }
-
-        .support-logo-wrapper a:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.05);
+        
+        .social-links a {
+            color: var(--amarelo-primario);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
         }
-
-        .theme-switcher {
+        
+        .social-links a:hover {
+            color: var(--amarelo-claro);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+        }
+        
+        /* Carrinho de Compras */
+        .carrinho-btn {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            color: var(--white);
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--amarelo-primario);
+            color: var(--roxo-primario);
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            box-shadow: var(--shadow-md);
             z-index: 999;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
-
-        .theme-switcher:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
+        
+        .carrinho-btn:hover {
+            transform: scale(1.1);
         }
-
+        
+        .carrinho-contador {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--roxo-primario);
+            color: var(--branco);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .carrinho-modal {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: var(--branco);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            overflow-y: auto;
+        }
+        
+        .carrinho-modal.aberto {
+            right: 0;
+        }
+        
+        .carrinho-header {
+            background: linear-gradient(135deg, var(--roxo-primario), var(--roxo-secundario));
+            color: var(--branco);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .carrinho-header h3 {
+            margin: 0;
+        }
+        
+        .fechar-carrinho {
+            background: none;
+            border: none;
+            color: var(--branco);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .carrinho-itens {
+            padding: 1.5rem;
+        }
+        
+        .carrinho-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .carrinho-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .carrinho-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carrinho-item-info {
+            flex: 1;
+        }
+        
+        .carrinho-item-nome {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+        
+        .carrinho-item-adicionais {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+        
+        .carrinho-item-preco {
+            color: var(--roxo-primario);
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+        
+        .carrinho-item-quantidade {
+            display: flex;
+            align-items: center;
+        }
+        
+        .carrinho-total {
+            padding: 1.5rem;
+            background-color: var(--roxo-claro);
+            margin: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .carrinho-total h4 {
+            margin-bottom: 1rem;
+            color: var(--roxo-primario);
+        }
+        
+        .carrinho-total-valor {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--roxo-secundario);
+        }
+        
+        .carrinho-acoes {
+            padding: 0 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .carrinho-vazio {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+        
         /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -883,7 +644,7 @@
                 transform: translateY(0);
             }
         }
-
+        
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -894,682 +655,1126 @@
                 transform: translateY(0);
             }
         }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        /* Botões Flutuantes de Redes Sociais */
+        .social-flutuante {
+            position: fixed;
+            top: 50%;
+            right: 20px; /* Movido para a direita */
+            transform: translateY(-50%);
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: var(--branco);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1) translateX(-5px); /* Ajustado para mover para a esquerda */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icon.instagram {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .social-icon.facebook {
+            background-color: #3b5998;
+        }
+
+        .social-icon.whatsapp {
+            background-color: #25D366;
+        }
+
+        /* Ajustes dos ícones flutuantes para telas menores */
+        @media (max-width: 992px) {
+            .social-flutuante {
+                gap: 0.8rem; /* Reduz o espaçamento entre os ícones */
+                right: 10px; /* Aproxima da borda */
+            }
+
+            .social-icon {
+                width: 40px; /* Diminui o tamanho do balão */
+                height: 40px;
+                font-size: 1.2rem; /* Diminui o tamanho do ícone */
+            }
+        }
+
+        /* Modal de Pedido */
+        .pedido-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none; /* Escondido por padrão */
+            align-items: center;
+            justify-content: center;
+            z-index: 1002;
+            padding: 1rem;
+        }
+
+        .pedido-modal-overlay.aberto {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .pedido-modal-content {
+            background-color: var(--branco);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: fadeInUp 0.4s ease;
+            position: relative;
+        }
+
+        .pedido-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pedido-modal-header h3 {
+            color: var(--roxo-primario);
+            margin: 0;
+        }
+
+        .fechar-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        #pedido-form .form-section-title {
+            color: var(--roxo-secundario);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--roxo-claro);
+            padding-bottom: 0.5rem;
+        }
+
+        #pedido-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        #pedido-form .form-group input,
+        #pedido-form .form-group select {
+            background-color: #f9f9f9;
+        }
 
         /* Responsivo */
-        @media screen and (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-img {
-                max-width: 600px;
-                margin: 0 auto;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background-color: var(--white);
+        @media (max-width: 768px) {
+            .header-content {
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 3rem;
-                transition: var(--transition);
-                z-index: 999;
+                gap: 1rem;
             }
             
-            .nav-menu.active {
-                left: 0;
+            nav ul {
+                gap: 1rem;
             }
             
-            .hamburger {
-                display: block;
-                width: 30px;
-                height: 20px;
-                position: relative;
-                z-index: 1000;
+            .hero h2 {
+                font-size: 2.2rem;
             }
             
-            .hamburger span {
-                display: block;
-                width: 100%;
-                height: 3px;
-                background-color: var(--primary);
-                position: absolute;
-                left: 0;
-                transition: var(--transition);
+            .hero p {
+                font-size: 1rem;
             }
             
-            .hamburger span:nth-child(1) { top: 0; }
-            .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
-            .hamburger span:nth-child(3) { bottom: 0; }
-            .hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
-            .hamburger.active span:nth-child(2) { opacity: 0; }
-            .hamburger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
-        }
-
-        @media screen and (max-width: 768px) {
-            .hero {
-                min-height: 400px;
-                height: auto;
-                padding: 3rem 0;
-            }
-            
-            .section {
-                padding: 3rem 0;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .hero-btns {
+            .form-row {
                 flex-direction: column;
-                align-items: center;
+                gap: 0;
             }
             
-            .btn {
-                width: 100%;
-                max-width: 250px;
-            }
-        }
-
-        @media screen and (max-width: 576px) {
-            .section-title {
-                font-size: 2rem;
+            .carrinho-modal {
+                width: 90%;
             }
             
-            .logo-text h1 {
-                font-size: 1.2rem;
-            }
-            
-            .logo-text span {
-                font-size: 0.7rem;
+            .ingredientes-opcoes {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <header>
         <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    <img src="logonovo.jpg" alt="Regional Brasil Brasilândia">
-                    <div class="logo-text">
-                        <h1>Regional Brasil Brasilândia</h1>
-                        <span>Grupo de Capoeira</span>
-                    </div>
-                </a>
-                
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="#home" class="nav-link">Início</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">Sobre</a></li>
-                    <li class="nav-item"><a href="#classes" class="nav-link">Aulas</a></li>
-                    <li class="nav-item"><a href="#gallery" class="nav-link">Galeria</a></li>
-                    <li class="nav-item"><a href="#events" class="nav-link">Eventos</a></li>
-                    <li class="nav-item"><a href="#team" class="nav-link">Mestres</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contato</a></li>
-                    <li class="nav-item nav-cta"><a href="#contact" class="btn btn-secondary">Aula Experimental</a></li>
-                </ul>
-                
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Point do Açaí">
+                    <h1>Point do Açaí</h1>
                 </div>
-            </nav>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="inicio">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Capoeira Regional Brasil Brasilândia</h1>
-                <p class="hero-subtitle">Preservando a tradição com modernidade. Movimento, cultura e transformação.</p>
-                <div class="hero-btns">
-                    <a href="#classes" class="btn btn-primary">Nossas Aulas</a>
-                    <a href="#contact" class="btn btn-secondary">Agende uma Visita</a>
-                </div>
+                <h2>O melhor açaí da região!</h2>
+                <p>Delicie-se com nosso açaí cremoso e saboroso, preparado com os melhores ingredientes e acompanhamentos frescos. Experimente hoje mesmo!</p>
+                <a href="#produtos" class="btn">Ver Produtos</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
+    <section id="produtos">
         <div class="container">
-            <h2 class="section-title">Sobre o Grupo</h2>
+            <h2 class="section-title">Nossos Produtos</h2>
             
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="logonovo.jpg" alt="Grupo Regional Brasil">
-                </div>
-                
-                <div class="about-text">
-                    <h2>Mais de 30 anos de história</h2>
-                    <p>  Capoeira Regional Brasil, Nosso trabalho vai além da prática esportiva, promovendo a cultura brasileira e transformando vidas através da capoeira.</p>
-                    <p>Com unidades em várias cidades do Brasil, já formamos centenas de capoeiristas que hoje disseminam nossa arte pelo mundo.</p>
-                    
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-medal"></i>
-                            </div>
-                            <div>
-                                <h4>Metodologia Própria</h4>
-                                <p>Sistema de ensino desenvolvido para todas as idades e níveis.</p>
+            <div class="categorias">
+                <button class="categoria-btn ativo" data-categoria="todos">Todos</button>
+                <button class="categoria-btn" data-categoria="copos">Copos</button>
+                <button class="categoria-btn" data-categoria="potes">Potes</button>
+                <button class="categoria-btn" data-categoria="barcas">Barcas</button>
+                <button class="categoria-btn" data-categoria="especiais">Especiais</button>
+            </div>
+            
+            <div class="produtos">
+                <!-- Copos de Açaí -->
+                <div class="produto" data-categoria="copos">
+                    <div class="produto-img">
+                        <img src="copotradicional.jpeg" alt="Açaí Tradicional">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Açaí Tradicional</h3>
+                        <p>Açaí puro e cremoso, sem adição de açúcar. Perfeito para quem busca o sabor original da fruta.</p>
+                        <span class="preco">R$ 12,90</span>
+                        
+                        <div class="quantidade-container">
+                            <button class="quantidade-btn diminuir">-</button>
+                            <input type="number" class="quantidade-input" value="1" min="1">
+                            <button class="quantidade-btn aumentar">+</button>
+                        </div>
+                        
+                        <div class="ingredientes-adicionais">
+                            <div class="ingredientes-title">Adicionais:</div>
+                            <div class="ingredientes-opcoes">
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="banana" data-preco="2.00"> Banana
+                                    <span class="ingrediente-preco">+R$2,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="morango" data-preco="2.50"> Morango
+                                    <span class="ingrediente-preco">+R$2,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="granola" data-preco="1.50"> Granola
+                                    <span class="ingrediente-preco">+R$1,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="leite-condensado" data-preco="2.00"> Leite Condensado
+                                    <span class="ingrediente-preco">+R$2,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="leite-em-po" data-preco="1.80"> Leite em Pó
+                                    <span class="ingrediente-preco">+R$1,80</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="nutella" data-preco="3.50"> Nutella
+                                    <span class="ingrediente-preco">+R$3,50</span>
+                                </label>
                             </div>
                         </div>
                         
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-music"></i>
-                            </div>
-                            <div>
-                                <h4>Musicalidade</h4>
-                                <p>Ensino completo de instrumentos e cantos tradicionais.</p>
+                        <button class="btn btn-roxo adicionar-carrinho" data-nome="Açaí Tradicional" data-preco="12.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <div class="produto" data-categoria="copos">
+                    <div class="produto-img">
+                        <img src="copoespecial.jpeg" alt="Açaí Especial">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Açaí Especial</h3>
+                        <p>Nosso açaí cremoso acompanhado de banana, granola, leite condensado e mel.</p>
+                        <span class="preco">R$ 16,90</span>
+                        
+                        <div class="quantidade-container">
+                            <button class="quantidade-btn diminuir">-</button>
+                            <input type="number" class="quantidade-input" value="1" min="1">
+                            <button class="quantidade-btn aumentar">+</button>
+                        </div>
+                        
+                        <div class="ingredientes-adicionais">
+                            <div class="ingredientes-title">Adicionais:</div>
+                            <div class="ingredientes-opcoes">
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="morango" data-preco="2.50"> Morango Extra
+                                    <span class="ingrediente-preco">+R$2,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="granola" data-preco="1.50"> Granola Extra
+                                    <span class="ingrediente-preco">+R$1,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="leite-condensado" data-preco="2.00"> Leite Condensado Extra
+                                    <span class="ingrediente-preco">+R$2,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="leite-em-po" data-preco="1.80"> Leite em Pó
+                                    <span class="ingrediente-preco">+R$1,80</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="nutella" data-preco="3.50"> Nutella
+                                    <span class="ingrediente-preco">+R$3,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="castanha" data-preco="2.50"> Castanha
+                                    <span class="ingrediente-preco">+R$2,50</span>
+                                </label>
                             </div>
                         </div>
                         
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div>
-                                <h4>Comunidade</h4>
-                                <p>Família de capoeiristas unidos pela mesma paixão.</p>
-                            </div>
+                        <button class="btn btn-roxo adicionar-carrinho" data-nome="Açaí Especial" data-preco="16.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <div class="produto" data-categoria="copos">
+                    <div class="produto-img">
+                        <span class="destaque">Mais Vendido</span>
+                        <img src="copoenergetico.png" alt="Açaí Power">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Açaí Power</h3>
+                        <p>Açaí turbinado com whey protein, pasta de amendoim, morango e granola.</p>
+                        <span class="preco">R$ 19,90</span>
+                        
+                        <div class="quantidade-container">
+                            <button class="quantidade-btn diminuir">-</button>
+                            <input type="number" class="quantidade-input" value="1" min="1">
+                            <button class="quantidade-btn aumentar">+</button>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Classes Section -->
-    <section id="classes" class="section classes">
-        <div class="container">
-            <h2 class="section-title">Nossas Aulas</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">Oferecemos programas completos para todas as idades e níveis, desde iniciantes até graduados.</p>
-            
-            <div class="classes-grid">
-                <!-- Aula 1 -->
-                <div class="class-card">
-                    <div class="class-img">
-                        <img src="criancas.jpg" alt="Aula para Crianças">
-                    </div>
-                    <div class="class-content">
-                        <h3 class="class-title">Capoeira Kids</h3>
-                        <div class="class-schedule">
-                            <i class="far fa-clock"></i>
-                            <span>Segunda , Quarta e sexta 17:30h-18:30h | sexta, 18:00h (MS)</span>
-                        </div>
-                        <p>Aulas lúdicas para crianças, desenvolvendo coordenação, ritmo, socialização, respeito e disciplina perante a sociedade.</p>
-                        <p class="class-price">R$ /mês</p>
-                        <a href="#contact" class="btn btn-primary">Matricule-se</a>
-                    </div>
-                </div>
-                
-                <!-- Aula 3 -->
-                <div class="class-card">
-                    <div class="class-img">
-                        <img src="profissional.jpg" alt="treino para adultos">
-                    </div>
-                    <div class="class-content">
-                        <h3 class="class-title">TREINO PARA ADULTOS</h3>
-                        <div class="class-schedule">
-                            <i class="far fa-clock"></i>
-                        <span>Segunda, Quarta e sexta 18:30h-19h30 | Sexta, 18:00h (MS)</span>
-                        </div>
-                        <p>Treinos intensivos, com técnicas avançadas e preparação para campeonatos.</p>
-                        <p class="class-price">R$ /mês</p>
-                        <a href="#contact" class="btn btn-primary">Matricule-se</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="section gallery">
-        <div class="container">
-            <h2 class="section-title">Nossa Galeria</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">Momentos especiais que vivemos juntos em nossa jornada na capoeira.</p>
-            
-            <div class="gallery-filter">
-                <button class="filter-btn active" data-filter="all">Todas</button>
-                <!-- Removido botão de filtro "Treinos" -->
-                <button class="filter-btn" data-filter="eventos">Eventos</button>
-                <button class="filter-btn" data-filter="batizados">Batizados</button>
-                <button class="filter-btn" data-filter="viagens">Viagens</button>
-            </div>
-            
-            <div class="gallery-grid">
-                <!-- Removido bloco/foto com data-category="treinos" -->
-                <!-- Foto 2 -->
-                <a href="img/gallery/evento1.jpg" class="gallery-item" data-lightbox="gallery" data-category="eventos" data-title="Apresentação Pública">
-                    <img src="apresentacao.jpg" alt="Apresentação Pública">
-                </a>
-                
-                <!-- Foto 3 -->
-                <a href="img/gallery/batizado1.jpg" class="gallery-item" data-lightbox="gallery" data-category="batizados" data-title="Cerimônia de Batizado">
-                    <img src="batizado.jpg" alt="Cerimônia de Batizado">
-                </a>
-                
-                <!-- Foto 5 -->
-                <a href="img/gallery/viagem1.jpg" class="gallery-item" data-lightbox="gallery" data-category="viagens" data-title="viagens">
-                    <img src="viagens.jpg" alt="viagens">
-                </a>
-                
-                <!-- Foto 6 -->
-                <a href="img/gallery/evento2.jpg" class="gallery-item" data-lightbox="gallery" data-category="eventos" data-title="Roda Semanal">
-                    <img src="roda.jpg" alt="Roda Semanal">
-                </a>
-                
-                <!-- Foto 7 -->
-                <a href="img/gallery/batizado2.jpg" class="gallery-item" data-lightbox="gallery" data-category="batizados" data-title="Troca de Cordas">
-                    <img src="troca.jpg" alt="Troca de Cordas">
-                </a>
-                
-                <!-- Foto 8 -->
-                <a href="img/gallery/viagem2.jpg" class="gallery-item" data-lightbox="gallery" data-category="viagens" data-title="Workshop com Mestre Convidado">
-                    <img src="mestre.jpg" alt="Workshop com Mestre Convidado">
-                </a>
-            </div>
-            
-            <!-- Botão para página de vídeos -->
-            <div class="text-center" style="margin-top: 3rem;">
-                <a href="https://thyeskomkenaodev.github.io/video_regional_brasil/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Confira todos os vídeos</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section id="events" class="section events">
-        <div class="container">
-            <h2 class="section-title"> Eventos</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">Participe dos nossos eventos e vivencie a capoeira em sua plenitude.</p>
-            
-            <div class="events-grid">
-                <!-- Evento 1 -->
-                <div class="event-card">
-                    <div class="event-img">
-                        <div class="event-date">29 mar</div>
-                        <img src="2025evento.jpg" alt=" Batizado">
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title"> Batizado</h3>
-                        <div class="event-meta">
-                            <span><i class="far fa-clock"></i> 15h - 22h</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Ginásio Master</span>
-                        </div>
-                        <p>Cerimônia de batizado e troca de cordas com participação de mestres convidados e roda aberta ao público.</p>
-                        <a href="#contact" class="btn btn-secondary">Mais Informações</a>
-                    </div>
-                </div>
-                
-                <!-- Evento 2 -->
-                <div class="event-card">
-                    <div class="event-img">
-                        <div class="event-date">xxx</div>
-                        <img src="musicalidade.jpg" alt=" Musicalidade">
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title">Musicalidade</h3>
-                        <div class="event-meta">
-                            <span><i class="far fa-clock"></i> 17:30 - 18:30</span>
-                            <span><i class="fas fa-map-marker-alt"></i> evento master</span>
-                        </div>
-                        <p>Aprenda os toques de berimbau, cantos tradicionais e a história por trás de cada ritmo na capoeira.</p>
-                        <a href="#contact" class="btn btn-secondary">Mais Informações</a>
-                    </div>
-                </div>
-                
-                <!-- Evento 3 -->
-                <div class="event-card">
-                    <div class="event-img">
-                        <div class="event-date">2025</div>
-                        <img src="turma20225.jpg" alt="turma 2025">
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title">turma 2025</h3>
-                        <div class="event-meta">
-                            <span><i class="far fa-clock"></i> segunda a sexta</span>
-                            <span><i class="fas fa-map-marker-alt"></i> centro de treinamentos</span>
-                        </div>
-                        <p>Turma de 2025 com aulas de segunda a sexta.</p>
-                        <a href="#contact" class="btn btn-secondary">Mais Informações</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="section team">
-        <div class="container">
-            <h2 class="section-title">Nossos Mestres</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">Conheça a equipe de mestres e instrutores que guiam nosso grupo.</p>
-            
-            <div class="team-grid">
-                <!-- Membro 1 -->
-                <div class="team-member">
-                    <div class="member-img">
-                        <img src="sapela.jpg" alt="Mestre sapela">
-                    </div>
-                    <h3 class="member-name">Mestre sapela</h3>
-                    <p class="member-role">supervisor</p>
-                    <p>mestre representante, lidera o grupo  com sabedoria e dedicação.</p>
-                    <div class="member-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Membro 2 -->
-                <div class="team-member">
-                    <div class="member-img">
-                        <img src="sagui.jpg" alt="Mestre sagui">
-                    </div>
-                    <h3 class="member-name">Mestre sagui</h3>
-                    <p class="member-role"> Pedagogo</p>
-                    <p>Graduado em Educação Pedagógica, desenvolveu nossa metodologia de ensino para crianças e iniciantes.</p>
-                    <div class="member-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Membro 3 -->
-                <div class="team-member">
-                    <div class="member-img">
-                        <img src="amanda.jpg" alt="Professora rasteirinha">
-                    </div>
-                    <h3 class="member-name">Professora rasteirinha</h3>
-                    <p class="member-role"> capoeira inclusiva</p>
-                    <p>Especialista em Capoeira inclusiva, ministra aulas para crianças com necessidades especiais.</p>
-                    <div class="member-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support Section -->
-    <section id="apoio" class="section support">
-        <div class="container">
-            <h2 class="section-title">Apoio</h2>
-            <div class="support-logo-wrapper">
-                <a href="#" title="Link para a Associação">
-                    <img src="logoacociacao.jpg" alt="Logo da Associação Apoiadora">
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Agende uma aula experimental ou tire suas dúvidas sobre nosso trabalho.</p>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Informações</h3>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Endereço</h4>
-                                <p>Rua: nildo boreli, 646 - Centro<br>BRASILÂNDIA - MS</p>
+                        
+                        <div class="ingredientes-adicionais">
+                            <div class="ingredientes-title">Adicionais:</div>
+                            <div class="ingredientes-opcoes">
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="banana" data-preco="2.00"> Banana
+                                    <span class="ingrediente-preco">+R$2,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="morango" data-preco="2.50"> Morango Extra
+                                    <span class="ingrediente-preco">+R$2,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="granola" data-preco="1.50"> Granola Extra
+                                    <span class="ingrediente-preco">+R$1,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="leite-condensado" data-preco="2.00"> Leite Condensado
+                                    <span class="ingrediente-preco">+R$2,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="nutella" data-preco="3.50"> Nutella Extra
+                                    <span class="ingrediente-preco">+R$3,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="whey" data-preco="4.00"> Whey Protein Extra
+                                    <span class="ingrediente-preco">+R$4,00</span>
+                                </label>
                             </div>
                         </div>
                         
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Telefone</h4>
-                                <p><a href="tel:+5511987654321">xxxxxxxxx</a></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p><a href="mailto:contato@regionalbrasil.com.br">contato@regionalbrasil.com.br</a></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Horário de Funcionamento</h4>
-                                <p>Segunda a Sexta: 17:30-19:30h<br></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <button class="btn btn-roxo adicionar-carrinho" data-nome="Açaí Power" data-preco="19.90">Adicionar ao Carrinho</button>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <form id="form-contato">
-                        <div class="form-group">
-                            <input type="text" placeholder="Seu Nome" required>
+                <!-- Potes de Açaí -->
+                <div class="produto" data-categoria="potes">
+                    <div class="produto-img">
+                        <img src="pote500.jpeg" alt="Pote de Açaí Tradicional">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Pote Tradicional 500g</h3>
+                        <p>Açaí puro e cremoso no pote, ideal para compartilhar ou para quem quer mais!</p>
+                        <span class="preco">R$ 24,90</span>
+                        
+                        <div class="quantidade-container">
+                            <button class="quantidade-btn diminuir">-</button>
+                            <input type="number" class="quantidade-input" value="1" min="1">
+                            <button class="quantidade-btn aumentar">+</button>
                         </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Seu Email" required>
+                        
+                        <div class="ingredientes-adicionais">
+                            <div class="ingredientes-title">Adicionais:</div>
+                            <div class="ingredientes-opcoes">
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="banana" data-preco="3.00"> Banana
+                                    <span class="ingrediente-preco">+R$3,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="morango" data-preco="3.50"> Morango
+                                    <span class="ingrediente-preco">+R$3,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="granola" data-preco="2.50"> Granola
+                                    <span class="ingrediente-preco">+R$2,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="leite-condensado" data-preco="3.00"> Leite Condensado
+                                    <span class="ingrediente-preco">+R$3,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="leite-em-po" data-preco="2.80"> Leite em Pó
+                                    <span class="ingrediente-preco">+R$2,80</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="nutella" data-preco="4.50"> Nutella
+                                    <span class="ingrediente-preco">+R$4,50</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Seu Telefone">
+                        
+                        <button class="btn btn-roxo adicionar-carrinho" data-nome="Pote Tradicional 500g" data-preco="24.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <div class="produto" data-categoria="potes">
+                    <div class="produto-img">
+                        <img src="potecompleto.jpeg" alt="Pote de Açaí Completo">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Pote Completo 500g</h3>
+                        <p>Açaí com todas as delícias: banana, morango, granola, leite condensado e paçoca.</p>
+                        <span class="preco">R$ 29,90</span>
+                        
+                        <div class="quantidade-container">
+                            <button class="quantidade-btn diminuir">-</button>
+                            <input type="number" class="quantidade-input" value="1" min="1">
+                            <button class="quantidade-btn aumentar">+</button>
                         </div>
-                        <div class="form-group">
-                            <textarea placeholder="Sua Mensagem" required></textarea>
+                        
+                        <div class="ingredientes-adicionais">
+                            <div class="ingredientes-title">Adicionais:</div>
+                            <div class="ingredientes-opcoes">
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="morango" data-preco="3.50"> Morango Extra
+                                    <span class="ingrediente-preco">+R$3,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="granola" data-preco="2.50"> Granola Extra
+                                    <span class="ingrediente-preco">+R$2,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="leite-condensado" data-preco="3.00"> Leite Condensado Extra
+                                    <span class="ingrediente-preco">+R$3,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="nutella" data-preco="4.50"> Nutella
+                                    <span class="ingrediente-preco">+R$4,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="castanha" data-preco="3.50"> Castanha
+                                    <span class="ingrediente-preco">+R$3,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="pacoquinha" data-preco="2.50"> Paçoquinha Extra
+                                    <span class="ingrediente-preco">+R$2,50</span>
+                                </label>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                    </form>
+                        
+                        <button class="btn btn-roxo adicionar-carrinho" data-nome="Pote Completo 500g" data-preco="29.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <div class="produto" data-categoria="potes">
+                    <div class="produto-img">
+                        <span class="destaque">Novidade</span>
+                        <img src="pote1kilo.jpeg" alt="Pote de Açaí Premium">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Pote Premium 1kg</h3>
+                        <p>Nosso açaí premium com frutas frescas, granola especial, nutella e castanhas.</p>
+                        <span class="preco">R$ 49,90</span>
+                        
+                        <div class="quantidade-container">
+                            <button class="quantidade-btn diminuir">-</button>
+                            <input type="number" class="quantidade-input" value="1" min="1">
+                            <button class="quantidade-btn aumentar">+</button>
+                        </div>
+                        
+                        <div class="ingredientes-adicionais">
+                            <div class="ingredientes-title">Adicionais Premium:</div>
+                            <div class="ingredientes-opcoes">
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="frutas-vermelhas" data-preco="5.00"> Frutas Vermelhas
+                                    <span class="ingrediente-preco">+R$5,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="granola-premium" data-preco="4.00"> Granola Premium
+                                    <span class="ingrediente-preco">+R$4,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="nutella" data-preco="5.50"> Nutella Extra
+                                    <span class="ingrediente-preco">+R$5,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="castanha-premium" data-preco="4.50"> Castanha Premium
+                                    <span class="ingrediente-preco">+R$4,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="mel" data-preco="3.50"> Mel
+                                    <span class="ingrediente-preco">+R$3,50</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="chantilly" data-preco="4.00"> Chantilly
+                                    <span class="ingrediente-preco">+R$4,00</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-roxo adicionar-carrinho" data-nome="Pote Premium 1kg" data-preco="49.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Barcas de Açaí -->
+                <div class="produto" data-categoria="barcas">
+                    <div class="produto-img">
+                        <img src="barcapequena.jpeg" alt="Barca de Açaí Média">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Barca Média da Casa</h3>
+                        <p>Nossa barca média vem com açaí, banana, morango, granola e leite em pó. Perfeita para dividir!</p>
+                        <span class="preco">R$ 39,90</span>
+                        
+                        <div class="quantidade-container">
+                            <button class="quantidade-btn diminuir">-</button>
+                            <input type="number" class="quantidade-input" value="1" min="1">
+                            <button class="quantidade-btn aumentar">+</button>
+                        </div>
+                        
+                        <div class="ingredientes-adicionais">
+                            <div class="ingredientes-title">Adicionais Extras:</div>
+                            <div class="ingredientes-opcoes">
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="leite-condensado-extra" data-preco="3.00"> Leite Condensado
+                                    <span class="ingrediente-preco">+R$3,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="nutella" data-preco="5.00"> Nutella
+                                    <span class="ingrediente-preco">+R$5,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="castanha" data-preco="4.00"> Castanha
+                                    <span class="ingrediente-preco">+R$4,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="pacoca" data-preco="2.50"> Paçoca
+                                    <span class="ingrediente-preco">+R$2,50</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-roxo adicionar-carrinho" data-nome="Barca Média da Casa" data-preco="39.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <div class="produto" data-categoria="barcas">
+                    <div class="produto-img">
+                        <span class="destaque">Para a Galera</span>
+                        <img src="barcagrande.jpeg" alt="Barca de Açaí Grande">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Barca Grande da Galera</h3>
+                        <p>Açaí para toda a turma! Acompanha banana, morango, kiwi, granola, leite em pó e leite condensado.</p>
+                        <span class="preco">R$ 59,90</span>
+                        
+                        <div class="quantidade-container">
+                            <button class="quantidade-btn diminuir">-</button>
+                            <input type="number" class="quantidade-input" value="1" min="1">
+                            <button class="quantidade-btn aumentar">+</button>
+                        </div>
+                        
+                        <div class="ingredientes-adicionais">
+                            <div class="ingredientes-title">Adicionais Extras:</div>
+                            <div class="ingredientes-opcoes">
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="nutella" data-preco="7.00"> Nutella
+                                    <span class="ingrediente-preco">+R$7,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="frutas-vermelhas" data-preco="6.00"> Frutas Vermelhas
+                                    <span class="ingrediente-preco">+R$6,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="whey" data-preco="5.00"> Whey Protein
+                                    <span class="ingrediente-preco">+R$5,00</span>
+                                </label>
+                                <label class="ingrediente-option">
+                                    <input type="checkbox" name="adicionais" value="chantilly" data-preco="4.00"> Chantilly
+                                    <span class="ingrediente-preco">+R$4,00</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-roxo adicionar-carrinho" data-nome="Barca Grande da Galera" data-preco="59.90">Adicionar ao Carrinho</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre Nós</h2>
+            <div class="sobre-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="margin-bottom: 1.5rem; line-height: 1.6; font-size: 1.1rem;">O Point do Açaí nasceu da paixão por oferecer o melhor açaí da região, com qualidade incomparável e sabor inigualável.</p>
+                <p style="margin-bottom: 1.5rem; line-height: 1.6; font-size: 1.1rem;">Nossa missão é levar até você a autêntica experiência do açaí, preparado com frutas selecionadas e acompanhamentos frescos, garantindo sabor e saúde em cada colherada.</p>
+                <div style="margin: 2rem 0;">
+                    <h3 style="color: var(--roxo-primario); margin-bottom: 1rem;">Nosso Diferencial</h3>
+                    <p style="line-height: 1.6;">Usamos apenas açaí 100% natural, sem conservantes ou corantes artificiais. Todos os dias preparamos nossa massa com frutas frescas para garantir o melhor sabor!</p>
+                </div>
+                <p style="line-height: 1.6; font-size: 1.1rem;">Visite nosso point e descubra por que somos a preferência dos amantes de açaí!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <p style="margin-bottom: 1rem; font-size: 1.1rem;"><i class="fas fa-map-marker-alt" style="color: var(--roxo-primario); margin-right: 10px;"></i> Praça Santa Maria, 228 - Centro</p>
+                <p style="margin-bottom: 1rem; font-size: 1.1rem;"><i class="fas fa-phone" style="color: var(--roxo-primario); margin-right: 10px;"></i> (67) 99683-6291</p>
+                <p style="font-size: 1.1rem;"><i class="fas fa-envelope" style="color: var(--roxo-primario); margin-right: 10px;"></i> contato@pointdoacai.com.br</p>
+            </div>
+            <div style="text-align: center;">
+                <h3 style="color: var(--roxo-primario); margin-bottom: 1rem;">Horário de Funcionamento</h3>
+                <p style="margin-bottom: 0.5rem;">Segunda a Sexta: 10h às 22h</p>
+                <p>Sábado e Domingo: 11h às 23h</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-col">
-                    <h3>Regional Brasil Brasilândia</h3>
-                    <p>Preservando a tradição da Capoeira Regional com excelência. Movimento, cultura e transformação social.</p>
-                    <div class="contact-social" style="margin-top: 1rem;">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+                <div class="logo">
+                    <img src="logo.jpg" alt="Point do Açaí">
+                    <h1 style="color: var(--branco);">Point do Açaí</h1>
                 </div>
                 
-                <div class="footer-col">
-                    <h3>Links Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre Nós</a></li>
-                        <li><a href="#classes">Aulas</a></li>
-                        <li><a href="#events">Eventos</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                    </ul>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16pmya9qkG/" target="_blank" aria-label="Link para o Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/pointdoacaibrasilandiams?igsh=MW5tcnUzOTF1N2t4eA==" target="_blank" aria-label="Link para o Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5567999361566" target="_blank" aria-label="Link para o WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
                 
-                <div class="footer-col">
-                    <h3>Aulas</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Capoeira Kids</a></li>
-                        <li><a href="#">Iniciantes</a></li>
-                        <li><a href="#">Intermediário</a></li>
-                        <li><a href="#">Avançado</a></li>
-                        <li><a href="#">Musicalidade</a></li>
-                    </ul>
+                <div class="copyright">
+                    <p>&copy; 2025 Thyesko Menão. Todos os direitos reservados.</p>
                 </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 - thyesko menão. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Theme Switcher -->
-    <div class="theme-switcher" id="themeSwitcher">
-        <i class="fas fa-moon"></i>
+    <!-- Botões Flutuantes de Redes Sociais -->
+    <div class="social-flutuante">
+        <a href="https://www.instagram.com/pointdoacaibrasilandiams?igsh=MW5tcnUzOTF1N2t4eA==" target="_blank" class="social-icon instagram" aria-label="Siga-nos no Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/share/16pmya9qkG/" target="_blank" class="social-icon facebook" aria-label="Curta nossa página no Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://wa.me/5567999361566" target="_blank" class="social-icon whatsapp" aria-label="Fale conosco no WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Carrinho de Compras -->
+    <div class="carrinho-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="carrinho-contador">0</span>
+    </div>
+    
+    <div class="carrinho-modal">
+        <div class="carrinho-header">
+            <h3>Seu Carrinho</h3>
+            <button class="fechar-carrinho"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="carrinho-itens">
+            <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
+            <div class="carrinho-vazio">
+                <p>Seu carrinho está vazio</p>
+            </div>
+        </div>
+        <div class="carrinho-total">
+            <h4>Total</h4>
+            <div class="carrinho-total-valor">R$ 0,00</div>
+        </div>
+        <div class="carrinho-acoes">
+            <button class="btn btn-roxo" style="width: 100%;" id="finalizar-pedido">Finalizar Pedido</button>
+            <button class="btn" style="width: 100%; background-color: #f8f9fa; color: #333;" id="limpar-carrinho">Limpar Carrinho</button>
+        </div>
+    </div>
+
+    <!-- Modal de Pedido -->
+    <div class="pedido-modal-overlay" id="pedido-modal">
+        <div class="pedido-modal-content">
+            <div class="pedido-modal-header">
+                <h3>Finalizar Pedido</h3>
+                <button class="fechar-modal" id="fechar-pedido-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="pedido-form">
+                <h4 class="form-section-title">Seus Dados</h4>
+                <div class="form-group">
+                    <label for="nome-cliente">Nome Completo</label>
+                    <input type="text" id="nome-cliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone-cliente">Telefone (WhatsApp)</label>
+                    <input type="tel" id="telefone-cliente" placeholder="(XX) XXXXX-XXXX" required>
+                </div>
+
+                <h4 class="form-section-title">Endereço de Entrega</h4>
+                <div class="form-group">
+                    <label for="bairro-cliente">Bairro</label>
+                    <input type="text" id="bairro-cliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="rua-cliente">Rua e Número</label>
+                    <input type="text" id="rua-cliente" required>
+                </div>
+
+                <h4 class="form-section-title">Pagamento</h4>
+                <div class="form-group">
+                    <label for="pagamento-cliente">Forma de Pagamento</label>
+                    <select id="pagamento-cliente" required>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Cartão de Crédito/Débito">Cartão de Crédito/Débito</option>
+                        <option value="Pix">Pix</option>
+                    </select>
+                </div>
+                <div class="form-group" id="troco-group" style="display: none;">
+                    <label for="valor-troco">Valor que será pago (para troco)</label>
+                    <input type="number" id="valor-troco" placeholder="Ex: 50.00" step="0.01">
+                </div>
+                <button type="submit" class="btn btn-roxo" style="width: 100%;">Enviar Pedido via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // Menu Mobile
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+        // Carrinho de Compras
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrinhoBtn = document.querySelector('.carrinho-btn');
+            const carrinhoModal = document.querySelector('.carrinho-modal');
+            const fecharCarrinho = document.querySelector('.fechar-carrinho');
+            const carrinhoItens = document.querySelector('.carrinho-itens');
+            const carrinhoContador = document.querySelector('.carrinho-contador');
+            const carrinhoTotal = document.querySelector('.carrinho-total-valor');
+            const finalizarPedidoBtn = document.getElementById('finalizar-pedido');
+            const limparCarrinhoBtn = document.getElementById('limpar-carrinho');
+            const pedidoModal = document.getElementById('pedido-modal');
+            const fecharPedidoModal = document.getElementById('fechar-pedido-modal');
+            const pedidoForm = document.getElementById('pedido-form');
+            const pagamentoClienteSelect = document.getElementById('pagamento-cliente');
+            const trocoGroup = document.getElementById('troco-group');
+            const valorTrocoInput = document.getElementById('valor-troco');
+
+            
+            let carrinho = [];
+
+            // Função para mostrar/esconder campo de troco
+            function toggleTrocoField() {
+                if (pagamentoClienteSelect.value === 'Dinheiro') {
+                    trocoGroup.style.display = 'block';
+                    valorTrocoInput.required = true;
+                } else {
+                    trocoGroup.style.display = 'none';
+                    valorTrocoInput.required = false;
+                    valorTrocoInput.value = '';
+                }
+            }
+
+            // Checagem inicial e listener para o campo de pagamento
+            toggleTrocoField();
+            pagamentoClienteSelect.addEventListener('change', toggleTrocoField);
+            
+            // Abrir/fechar carrinho
+            carrinhoBtn.addEventListener('click', function() {
+                carrinhoModal.classList.add('aberto');
             });
-        });
-        
-        // Header scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
-        
-        // Filtro da Galeria
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active de todos os botões
-                filterBtns.forEach(btn => btn.classList.remove('active'));
-                // Adiciona active ao botão clicado
-                btn.classList.add('active');
-                
-                const filter = btn.getAttribute('data-filter');
-                
-                galleryItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
+            
+            fecharCarrinho.addEventListener('click', function() {
+                carrinhoModal.classList.remove('aberto');
+            });
+
+            fecharPedidoModal.addEventListener('click', function() {
+                pedidoModal.classList.remove('aberto');
+            });
+            
+            // Adicionar ao carrinho
+            document.querySelectorAll('.adicionar-carrinho').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const produto = this.parentElement;
+                    const nome = this.getAttribute('data-nome');
+                    const preco = parseFloat(this.getAttribute('data-preco'));
+                    const quantidade = parseInt(produto.querySelector('.quantidade-input').value);
+                    const imagem = produto.parentElement.querySelector('.produto-img img').src;
+                    
+                    // Obter ingredientes adicionais selecionados
+                    const adicionais = [];
+                    let adicionalTotal = 0;
+                    
+                    produto.querySelectorAll('input[name="adicionais"]:checked').forEach(adicional => {
+                        const nomeAdicional = adicional.value;
+                        const precoAdicional = parseFloat(adicional.getAttribute('data-preco'));
+                        
+                        adicionais.push({
+                            nome: nomeAdicional,
+                            preco: precoAdicional
+                        });
+                        
+                        adicionalTotal += precoAdicional;
+                    });
+                    
+                    // Verificar se o produto já está no carrinho
+                    const index = carrinho.findIndex(item => 
+                        item.nome === nome && 
+                        JSON.stringify(item.adicionais.map(a => a.nome).sort()) === 
+                        JSON.stringify(adicionais.map(a => a.nome).sort())
+                    );
+                    
+                    if (index >= 0) {
+                        // Se já estiver, atualiza a quantidade
+                        carrinho[index].quantidade += quantidade;
                     } else {
-                        item.style.display = 'none';
+                        // Se não estiver, adiciona novo item
+                        carrinho.push({
+                            nome,
+                            preco,
+                            quantidade,
+                            imagem,
+                            adicionais,
+                            adicionalTotal
+                        });
                     }
+                    
+                    atualizarCarrinho();
+                    carrinhoModal.classList.add('aberto');
+                    
+                    // Efeito visual
+                    this.textContent = 'Adicionado!';
+                    setTimeout(() => {
+                        this.textContent = 'Adicionar ao Carrinho';
+                    }, 2000);
                 });
             });
-        });
-        
-        // Lightbox
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'showImageNumberLabel': true,
-            'alwaysShowNavOnTouchDevices': true
-        });
-        
-        // Theme Switcher
-        const themeSwitcher = document.getElementById('themeSwitcher');
-        const themeIcon = themeSwitcher.querySelector('i');
-        
-        themeSwitcher.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
-            document.documentElement.setAttribute('data-theme', newTheme);
+            // Controles de quantidade nos produtos
+            document.querySelectorAll('.quantidade-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.parentElement.querySelector('.quantidade-input');
+                    let value = parseInt(input.value);
+                    
+                    if (this.classList.contains('diminuir') && value > 1) {
+                        value--;
+                    } else if (this.classList.contains('aumentar')) {
+                        value++;
+                    }
+                    
+                    input.value = value;
+                });
+            });
             
-            if (newTheme === 'dark') {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
+            // Finalizar pedido
+            finalizarPedidoBtn.addEventListener('click', function() {
+                if (carrinho.length === 0) {
+                    alert('Seu carrinho está vazio!');
+                    return;
+                }
+                
+                // Abre o modal de pedido
+                pedidoModal.classList.add('aberto');
+            });
+
+            // Enviar pedido via WhatsApp
+            pedidoForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const nomeCliente = document.getElementById('nome-cliente').value;
+                const telefoneCliente = document.getElementById('telefone-cliente').value;
+                const bairroCliente = document.getElementById('bairro-cliente').value;
+                const ruaCliente = document.getElementById('rua-cliente').value;
+                const pagamentoCliente = document.getElementById('pagamento-cliente').value;
+                const valorTroco = document.getElementById('valor-troco').value;
+
+                let totalPedido = 0;
+                carrinho.forEach(item => {
+                    totalPedido += (item.preco + item.adicionalTotal) * item.quantidade;
+                });
+
+                // Validação para pagamento em dinheiro
+                if (pagamentoCliente === 'Dinheiro') {
+                    if (!valorTroco) {
+                        alert('Por favor, informe com qual valor você irá pagar.');
+                        valorTrocoInput.focus();
+                        return;
+                    }
+                    if (parseFloat(valorTroco) < totalPedido) {
+                        alert(`O valor para pagamento (R$ ${parseFloat(valorTroco).toFixed(2)}) não pode ser menor que o total do pedido (R$ ${totalPedido.toFixed(2)}).`);
+                        valorTrocoInput.focus();
+                        return;
+                    }
+                }
+
+                let mensagem = `*Novo Pedido - Point do Açaí*\n\n`;
+                mensagem += `*Cliente:* ${nomeCliente}\n`;
+                mensagem += `*Telefone:* ${telefoneCliente}\n\n`;
+                mensagem += `*Endereço de Entrega:*\n`;
+                mensagem += `Bairro: ${bairroCliente}\n`;
+                mensagem += `Rua: ${ruaCliente}\n\n`;
+                mensagem += `*Itens do Pedido:*\n`;
+                mensagem += `----------------------\n`;
+                carrinho.forEach(item => {
+                    const itemTotal = (item.preco + item.adicionalTotal) * item.quantidade;
+                    mensagem += `${item.quantidade}x *${item.nome}*\n`;
+                    if (item.adicionais.length > 0) {
+                        mensagem += `  (Adicionais: ${item.adicionais.map(a => a.nome).join(', ')})\n`;
+                    }
+                    mensagem += `  Subtotal: R$ ${itemTotal.toFixed(2)}\n`;
+                });
+
+                mensagem += `----------------------\n`;
+                mensagem += `*Total do Pedido: R$ ${totalPedido.toFixed(2)}*\n`;
+                mensagem += `*Forma de Pagamento:* ${pagamentoCliente}\n`;
+                if (pagamentoCliente === 'Dinheiro') {
+                    const valorPago = parseFloat(valorTroco);
+                    const troco = valorPago - totalPedido;
+                    mensagem += `*Pagar com:* R$ ${valorPago.toFixed(2)}\n`;
+                    if (troco > 0) {
+                        mensagem += `*Troco:* R$ ${troco.toFixed(2)}\n`;
+                    }
+                }
+
+                // Substitua pelo seu número de WhatsApp
+                const numeroWhatsApp = '5567999361566'; 
+                const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+                // Abrir link do WhatsApp
+                window.open(linkWhatsApp, '_blank');
+
+                // Limpar tudo e fechar modais
+                carrinho = [];
+                atualizarCarrinho();
+                pedidoModal.classList.remove('aberto');
+                carrinhoModal.classList.remove('aberto');
+                pedidoForm.reset();
+                toggleTrocoField(); // Garante que o campo de troco seja resetado corretamente
+            });
+            
+            // Limpar carrinho
+            limparCarrinhoBtn.addEventListener('click', function() {
+                carrinho = [];
+                atualizarCarrinho();
+            });
+            
+            // Função para atualizar o carrinho
+            function atualizarCarrinho() {
+                // Limpar itens do carrinho
+                carrinhoItens.innerHTML = '';
+                
+                if (carrinho.length === 0) {
+                    carrinhoItens.innerHTML = '<div class="carrinho-vazio"><p>Seu carrinho está vazio</p></div>';
+                    carrinhoContador.textContent = '0';
+                    carrinhoTotal.textContent = 'R$ 0,00';
+                    return;
+                }
+                
+                // Adicionar itens ao carrinho
+                let total = 0;
+                let totalItens = 0;
+                
+                carrinho.forEach(item => {
+                    const itemTotal = (item.preco + item.adicionalTotal) * item.quantidade;
+                    total += itemTotal;
+                    totalItens += item.quantidade;
+                    
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'carrinho-item';
+                    itemElement.innerHTML = `
+                        <div class="carrinho-item-img">
+                            <img src="${item.imagem}" alt="${item.nome}">
+                        </div>
+                        <div class="carrinho-item-info">
+                            <div class="carrinho-item-nome">${item.nome}</div>
+                            ${item.adicionais.length > 0 ? 
+                                `<div class="carrinho-item-adicionais">Adicionais: ${item.adicionais.map(a => a.nome).join(', ')}</div>` : 
+                                ''}
+                            <div class="carrinho-item-preco">R$ ${(item.preco + item.adicionalTotal).toFixed(2)} (un)</div>
+                            <div class="carrinho-item-quantidade">
+                                <button class="quantidade-btn diminuir-item btn-pequeno" data-nome="${item.nome}" data-adicionais="${JSON.stringify(item.adicionais)}">-</button>
+                                <span>${item.quantidade}</span>
+                                <button class="quantidade-btn aumentar-item btn-pequeno" data-nome="${item.nome}" data-adicionais="${JSON.stringify(item.adicionais)}">+</button>
+                                <button class="quantidade-btn remover-item btn-pequeno" data-nome="${item.nome}" data-adicionais="${JSON.stringify(item.adicionais)}" style="margin-left: auto;">Remover</button>
+                            </div>
+                            <div class="carrinho-item-total">Total: R$ ${itemTotal.toFixed(2)}</div>
+                        </div>
+                    `;
+                    
+                    carrinhoItens.appendChild(itemElement);
+                });
+                
+                // Atualizar contador e total
+                carrinhoContador.textContent = totalItens;
+                carrinhoTotal.textContent = `R$ ${total.toFixed(2)}`;
+                
+                // Adicionar eventos aos botões de quantidade no carrinho
+                document.querySelectorAll('.diminuir-item').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const nome = this.getAttribute('data-nome');
+                        const adicionais = JSON.parse(this.getAttribute('data-adicionais'));
+                        const item = carrinho.find(item => 
+                            item.nome === nome && 
+                            JSON.stringify(item.adicionais) === JSON.stringify(adicionais)
+                        );
+                        
+                        if (item.quantidade > 1) {
+                            item.quantidade--;
+                            atualizarCarrinho();
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.aumentar-item').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const nome = this.getAttribute('data-nome');
+                        const adicionais = JSON.parse(this.getAttribute('data-adicionais'));
+                        const item = carrinho.find(item => 
+                            item.nome === nome && 
+                            JSON.stringify(item.adicionais) === JSON.stringify(adicionais)
+                        );
+                        
+                        item.quantidade++;
+                        atualizarCarrinho();
+                    });
+                });
+                
+                document.querySelectorAll('.remover-item').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const nome = this.getAttribute('data-nome');
+                        const adicionais = JSON.parse(this.getAttribute('data-adicionais'));
+                        carrinho = carrinho.filter(item => 
+                            !(item.nome === nome && 
+                            JSON.stringify(item.adicionais) === JSON.stringify(adicionais))
+                        );
+                        atualizarCarrinho();
+                    });
+                });
             }
             
-            // Salvar preferência no localStorage
-            localStorage.setItem('theme', newTheme);
-        });
-        
-        // Verificar tema salvo
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        
-        if (savedTheme === 'dark') {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-        
-        // Animação ao rolar
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.about-content, .class-card, .event-card, .team-member');
+            // Animação ao rolar a página
+            const animatedElements = document.querySelectorAll('.produto, .formulario');
             
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 1s ease forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Filtro de categorias
+            const categoriaBtns = document.querySelectorAll('.categoria-btn');
+            const produtos = document.querySelectorAll('.produto');
+            
+            categoriaBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove a classe ativo de todos os botões
+                    categoriaBtns.forEach(b => b.classList.remove('ativo'));
+                    // Adiciona a classe ativo ao botão clicado
+                    this.classList.add('ativo');
+                    
+                    const categoria = this.getAttribute('data-categoria');
+                    
+                    produtos.forEach(produto => {
+                        if (categoria === 'todos' || produto.getAttribute('data-categoria') === categoria) {
+                            produto.style.display = 'block';
+                            produto.style.animation = 'fadeIn 0.5s ease';
+                        } else {
+                            produto.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Efeito de hover nos produtos
+            produtos.forEach(produto => {
+                produto.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+                });
                 
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                produto.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                });
+            });
+
+            // Fechar modal ao clicar fora
+            pedidoModal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    pedidoModal.classList.remove('aberto');
                 }
             });
-        };
-        
-        // Adiciona estilos iniciais para animação
-        document.querySelectorAll('.about-content, .class-card, .event-card, .team-member').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-        
-                // Formulário de Contato
-        const contactForm = document.getElementById('form-contato');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            contactForm.reset();
         });
     </script>
 </body>
